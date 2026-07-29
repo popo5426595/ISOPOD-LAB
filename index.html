@@ -6,180 +6,220 @@
 <meta name="theme-color" content="#10251d">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<title>ISOPOD LAB v2.1 APP ALPHA</title>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>ISOPOD LAB v2.2 FULL</title>
 <style>
-:root{--bg:#08130f;--panel:#12261e;--panel2:#193228;--line:#315345;--lime:#b9f36b;--cream:#f6f1dc;--muted:#9bb3a7;--gold:#ffd166;--danger:#ff7b7b;--blue:#8fd3ff}
+:root{
+  --bg:#07110d;--bg2:#0b1b14;--panel:#13271e;--panel2:#1a3428;--line:#315443;
+  --cream:#f6f1de;--muted:#a8b9af;--lime:#b9f36b;--gold:#ffd166;--blue:#8fd3ff;
+  --danger:#ff7d7d;--purple:#bf9cff;--shadow:0 18px 45px #0007;
+}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html,body{margin:0;min-height:100%;background:var(--bg);color:var(--cream);font-family:Arial,"Noto Sans KR",sans-serif}
-button{font:inherit;cursor:pointer;touch-action:manipulation}
-body{background:radial-gradient(circle at 50% -10%,#254b38 0,#0b1913 36%,#07100d 72%)}
-#app{max-width:720px;margin:auto;min-height:100vh;padding-bottom:94px}
-header{position:sticky;top:0;z-index:30;height:66px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;background:#0b1813e8;backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.brand b{display:block;font-size:17px}.brand small{color:var(--muted);font-size:10px}
-.head-actions{display:flex;align-items:center;gap:8px}.wallet,.icon-btn{border:1px solid var(--line);background:var(--panel);color:var(--cream);border-radius:14px}.wallet{padding:9px 11px;font-weight:900}.icon-btn{width:42px;height:42px}
-main{padding:14px}.view{display:none}.view.active{display:block}
-.hero{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:28px;padding:22px;min-height:210px;background:linear-gradient(145deg,#264d37,#14281f 60%,#0e1d17)}
-.hero:before{content:"";position:absolute;inset:auto -40px -70px auto;width:230px;height:230px;border-radius:50%;background:radial-gradient(circle,#c7ff7b55 0,#77c84c22 45%,transparent 70%)}
-.hero h1{font-size:29px;margin:8px 0}.hero p{color:#d6e3da;max-width:430px}.eyebrow{display:inline-block;font-size:11px;font-weight:900;letter-spacing:.08em;color:var(--lime)}
-.pod{position:absolute;right:24px;bottom:18px;width:130px;height:78px;border-radius:48% 52% 45% 45%;background:repeating-linear-gradient(90deg,#f4e5b8 0 15px,#57483b 16px 23px);border:4px solid #ffffff55;box-shadow:0 18px 32px #0007;transform:rotate(-9deg)}
-.pod:before,.pod:after{content:"";position:absolute;top:18px;width:17px;height:17px;border-radius:50%;background:#111;border:5px solid #fff}.pod:before{left:23px}.pod:after{left:53px}
-.quick-grid,.box-grid,.explore-grid,.inventory-grid{display:grid;gap:12px;margin-top:14px}.quick-grid{grid-template-columns:repeat(3,1fr)}.box-grid{grid-template-columns:1fr 1fr}.explore-grid{grid-template-columns:repeat(3,1fr)}.inventory-grid{grid-template-columns:repeat(auto-fit,minmax(155px,1fr))}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:15px}.card h3{margin:0 0 6px}.muted{color:var(--muted);font-size:13px}.big-icon{font-size:30px;display:block;margin-bottom:8px}
-.primary,.ghost,.danger{border-radius:15px;padding:12px 14px;font-weight:900;border:1px solid var(--line)}.primary{background:var(--lime);color:#102014;border:0}.ghost{background:var(--panel2);color:var(--cream)}.danger{background:#3b2022;color:#ffdede}.wide{width:100%}.premium{background:linear-gradient(145deg,#3b2d12,#201a0e);border-color:#755c20}.premium .price{color:var(--gold)}
-.price{font-size:22px;font-weight:900;margin:12px 0}.rates{font-size:12px;color:var(--muted);line-height:1.65}
-.result-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-top:14px}.result-card{background:var(--panel2);border:1px solid var(--line);border-radius:16px;padding:9px;text-align:center;animation:pop .36s both}.result-card b{display:block;font-size:11px}.result-card small{font-size:10px;color:var(--muted)}
-.rarity{display:inline-block;padding:3px 7px;border-radius:999px;font-size:9px;font-weight:900;margin-bottom:6px}.Normal{background:#d8e0dc;color:#24322b}.Rare{background:#a7dfff;color:#16394d}.Epic{background:#d3b3ff;color:#3b245d}.Unique{background:#ff9fd4;color:#5c1d43}.Legendary{background:#ffd166;color:#4b3510}
-.section-title{display:flex;align-items:end;justify-content:space-between;margin:8px 2px 12px}.section-title h2{margin:0}.section-title small{color:var(--muted)}
-.explore-card{min-height:280px;display:flex;flex-direction:column}.explore-scene{height:78px;border-radius:17px;margin:8px 0 12px;display:grid;place-items:center;font-size:39px;background:linear-gradient(145deg,#294734,#172a20)}.explore-card.gold .explore-scene{background:linear-gradient(145deg,#5b461e,#241e12)}
-.speed{font-weight:900;color:var(--lime);margin:8px 0}.stored{font-size:22px;font-weight:900;margin-bottom:10px}.slots{display:grid;gap:7px;margin:9px 0}.slot{display:flex;justify-content:space-between;align-items:center;padding:9px;border-radius:12px;background:var(--panel2);font-size:12px}.slot button{padding:6px 8px;border-radius:9px}.empty-slot{color:var(--muted);border:1px dashed var(--line);background:transparent}
-.worker-list{display:grid;gap:8px;max-height:340px;overflow:auto}.worker{display:flex;align-items:center;justify-content:space-between;padding:10px;border:1px solid var(--line);border-radius:13px;background:var(--panel2);color:var(--cream)}.worker[disabled]{opacity:.42}.worker .meta{font-size:11px;color:var(--muted)}
-.notice{padding:12px;border-radius:15px;background:#213d30;color:#d8eadf;margin:10px 0}
-nav{position:fixed;left:50%;bottom:0;transform:translateX(-50%);z-index:40;width:min(100%,720px);height:80px;padding:7px 8px calc(7px + env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(5,1fr);background:#0b1813f3;backdrop-filter:blur(16px);border-top:1px solid var(--line)}
-nav button{border:0;background:transparent;color:#789087;border-radius:15px;font-size:10px;font-weight:900}nav button b{display:block;font-size:23px;margin-bottom:3px}nav button.active{background:#1a3027;color:var(--lime)}
-dialog{width:min(94%,460px);border:1px solid var(--line);border-radius:22px;background:var(--panel);color:var(--cream);padding:16px}dialog::backdrop{background:#000a}
-.toast{position:fixed;left:50%;bottom:92px;transform:translateX(-50%) translateY(20px);background:#07100ded;border:1px solid var(--line);padding:11px 15px;border-radius:999px;opacity:0;pointer-events:none;transition:.25s;z-index:90;white-space:nowrap}.toast.show{opacity:1;transform:translateX(-50%)}
-@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.92)}to{opacity:1;transform:none}}
-@media(max-width:600px){.explore-grid{grid-template-columns:1fr}.quick-grid{grid-template-columns:repeat(3,1fr)}.quick-grid .card{padding:12px 8px;text-align:center}.box-grid{grid-template-columns:1fr}.result-grid{grid-template-columns:repeat(2,1fr)}.pod{opacity:.65;width:110px;height:66px}.hero{min-height:230px}}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--cream);font-family:Arial,"Noto Sans KR",sans-serif;overscroll-behavior:none}
+body{background:radial-gradient(circle at 50% -10%,#28503b 0,#102219 30%,#07110d 74%)}
+button,input,select{font:inherit}button{cursor:pointer;touch-action:manipulation}
+#app{max-width:760px;margin:auto;min-height:100vh;padding-bottom:100px;position:relative;overflow:hidden}
+.hidden{display:none!important}
+
+/* splash */
+#splash{position:fixed;inset:0;z-index:999;background:radial-gradient(circle at 50% 20%,#315f42 0,#14291d 44%,#07110d 100%);display:grid;place-items:center;overflow:hidden;transition:.55s ease}
+#splash.hide{opacity:0;transform:scale(1.04);pointer-events:none}
+.splash-card{text-align:center;position:relative;z-index:5;padding:24px}
+.splash-logo{font-weight:1000;font-size:clamp(38px,10vw,72px);letter-spacing:.06em;line-height:.92;text-shadow:0 8px 24px #0008}
+.splash-logo em{display:block;color:var(--lime);font-style:normal;font-size:.58em;letter-spacing:.28em;margin-left:.28em;margin-top:8px}
+.splash-tag{margin-top:18px;color:#d8e8dc;font-weight:800;letter-spacing:.02em}
+.splash-sub{font-size:12px;color:#91aa9d;margin-top:8px;letter-spacing:.12em}
+.sunray{position:absolute;inset:-30%;background:conic-gradient(from 40deg,transparent 0 8deg,#eaffc714 8deg 13deg,transparent 13deg 26deg);animation:spin 20s linear infinite}
+.leaf{position:absolute;top:-50px;width:16px;height:10px;border-radius:100% 0 100% 0;background:#a4ce69;opacity:.8;animation:fall linear infinite}
+.leaf:nth-child(1){left:8%;animation-duration:4.7s}.leaf:nth-child(2){left:21%;animation-duration:5.6s;animation-delay:1s}.leaf:nth-child(3){left:38%;animation-duration:4.9s;animation-delay:2s}.leaf:nth-child(4){left:63%;animation-duration:6.2s;animation-delay:.4s}.leaf:nth-child(5){left:82%;animation-duration:5.2s;animation-delay:1.8s}.leaf:nth-child(6){left:92%;animation-duration:6.8s;animation-delay:2.7s}
+.splash-pod{width:92px;height:50px;border-radius:48% 52% 44% 44%;margin:26px auto 0;background:repeating-linear-gradient(90deg,#f3e6bb 0 10px,#665345 11px 16px);border:3px solid #ffffff44;box-shadow:0 16px 28px #0008;animation:crawl 2.2s ease-in-out infinite;position:relative}
+.splash-pod:before,.splash-pod:after{content:"";position:absolute;bottom:-8px;width:78px;height:12px;left:7px;background:repeating-linear-gradient(90deg,transparent 0 9px,#d5c49d 9px 11px,transparent 11px 18px);transform:skewX(-25deg);opacity:.85}
+.splash-pod:after{bottom:auto;top:-6px;transform:skewX(25deg)}
+@keyframes fall{to{transform:translate(40px,110vh) rotate(720deg)}}@keyframes spin{to{transform:rotate(360deg)}}@keyframes crawl{0%,100%{transform:translateX(-18px) rotate(-2deg)}50%{transform:translateX(18px) rotate(2deg)}}
+
+/* shell */
+header{position:sticky;top:0;z-index:40;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 14px;background:#0a1712e8;backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.brand b{display:block;font-size:17px}.brand small{display:block;color:var(--muted);font-size:10px;margin-top:2px}.head-actions{display:flex;gap:8px;align-items:center}.wallet,.icon-btn{border:1px solid var(--line);background:var(--panel);color:var(--cream);border-radius:15px}.wallet{padding:9px 11px;font-weight:1000}.icon-btn{width:42px;height:42px}
+main{padding:14px}.view{display:none;animation:pageIn .28s ease}.view.active{display:block}@keyframes pageIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:10px;margin:2px 2px 14px}.section-head h1,.section-head h2{margin:0}.section-head small{color:var(--muted)}
+.card{background:linear-gradient(145deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:24px;padding:16px;box-shadow:0 10px 28px #0003}.muted{color:var(--muted)}.wide{width:100%}.primary,.secondary,.ghost,.danger{border:0;border-radius:16px;padding:13px 15px;font-weight:1000}.primary{background:var(--lime);color:#16301f}.secondary{background:#284737;color:var(--cream);border:1px solid #456b58}.ghost{background:#0f2019;color:var(--cream);border:1px solid var(--line)}.danger{background:#4a2424;color:#ffd5d5;border:1px solid #744}
+
+/* gacha */
+.gacha-hero{min-height:230px;position:relative;overflow:hidden;border:1px solid var(--line);border-radius:30px;padding:22px;background:linear-gradient(150deg,#325a3f,#172b21 55%,#0c1914);box-shadow:var(--shadow)}
+.gacha-hero:before{content:"";position:absolute;inset:-50px -80px auto auto;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,#ceff8c66 0,#8dd05b22 45%,transparent 70%)}
+.gacha-hero h1{font-size:31px;line-height:1.08;margin:8px 0 10px;max-width:390px}.gacha-hero p{color:#d4e5d9;max-width:370px;margin:0}.eyebrow{font-size:10px;font-weight:1000;letter-spacing:.14em;color:var(--lime)}
+.hero-box{position:absolute;right:22px;bottom:22px;width:150px;height:112px;transform:rotate(-3deg);filter:drop-shadow(0 20px 20px #0007);animation:boxFloat 2.8s ease-in-out infinite}.hero-box .lid{position:absolute;top:8px;left:5px;width:140px;height:30px;border-radius:12px;background:#a67842;border:4px solid #573d27;z-index:2}.hero-box .body{position:absolute;bottom:0;left:14px;width:122px;height:88px;border-radius:8px 8px 16px 16px;background:linear-gradient(90deg,#9e7040 0 42%,#c89558 42% 58%,#9e7040 58%);border:4px solid #573d27}.hero-box .spark{position:absolute;font-size:20px;animation:spark 1.8s infinite}.hero-box .s1{left:-10px;top:0}.hero-box .s2{right:-4px;top:22px;animation-delay:.6s}.hero-box .s3{right:34px;top:-20px;animation-delay:1.1s}@keyframes boxFloat{50%{transform:translateY(-8px) rotate(2deg)}}@keyframes spark{0%,100%{opacity:.25;transform:scale(.7)}50%{opacity:1;transform:scale(1.2)}}
+.box-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}.box-card{position:relative;overflow:hidden}.box-card h3{margin:4px 0}.box-card .icon{font-size:38px}.price{font-size:21px;font-weight:1000;color:var(--gold);margin:8px 0}.rates{font-size:12px;line-height:1.55;color:#c2d3c8}.premium{border-color:#7d65a5;background:linear-gradient(145deg,#312842,#1c2030)}.chance-btn{position:absolute;right:12px;top:12px;width:32px;height:32px;border-radius:50%;border:1px solid #ffffff22;background:#ffffff10;color:white;font-weight:1000}.result-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:14px}.result-card{min-height:132px;position:relative;overflow:hidden}.result-card b{display:block;font-size:14px;margin-top:8px}.tag{display:inline-block;border-radius:999px;padding:4px 8px;font-size:10px;font-weight:1000}.tag.Normal{background:#31463a}.tag.Rare{background:#214b66;color:#bfeaff}.tag.Epic{background:#513872;color:#e8d5ff}.tag.Unique{background:#745819;color:#ffe7a0}.tag.Legendary{background:#6a2b2b;color:#ffd0b0}.mini-pod{width:72px;height:42px;border-radius:48%;background:repeating-linear-gradient(90deg,#eee0ba 0 9px,#5e4e42 10px 14px);box-shadow:0 10px 18px #0005}
+
+/* lab room */
+.room{position:relative;min-height:650px;border:1px solid #4a654f;border-radius:30px;overflow:hidden;background:linear-gradient(#48634f 0 43%,#5e4936 43% 45%,#3b2d23 45% 100%);box-shadow:var(--shadow)}
+.room:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#ffffff05 1px,transparent 1px),linear-gradient(#ffffff05 1px,transparent 1px);background-size:38px 38px;opacity:.3}.window{position:absolute;left:18px;top:18px;width:126px;height:100px;border:8px solid #5d432d;border-radius:14px;background:linear-gradient(#90d4e9 0 55%,#8fbb6d 55% 100%);box-shadow:inset 0 0 30px #fff8}.window:before,.window:after{content:"";position:absolute;background:#5d432d}.window:before{width:6px;height:100%;left:50%}.window:after{height:6px;width:100%;top:50%}
+.hanging{position:absolute;right:20px;top:16px;font-size:44px;filter:drop-shadow(0 8px 8px #0005);animation:sway 4s ease-in-out infinite}@keyframes sway{50%{transform:rotate(3deg)}}
+.lab-title{position:absolute;top:132px;left:18px;font-size:13px;font-weight:1000;background:#102019c9;border:1px solid #5e7c68;border-radius:999px;padding:8px 12px}
+.shelf{position:absolute;left:18px;right:18px;top:180px;height:202px}.shelf-board{position:absolute;left:0;right:0;height:16px;background:#765237;border:3px solid #4c3425;border-radius:8px;box-shadow:0 10px 12px #0005}.shelf-board.a{top:86px}.shelf-board.b{bottom:0}.tank-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;position:absolute;left:6px;right:6px;top:4px}.tank-slot{height:82px;border:3px solid #5a4937;border-radius:12px;background:linear-gradient(#c6eee855 0 35%,#5d3d29 35% 100%);position:relative;overflow:hidden;color:white;text-align:left;padding:8px}.tank-slot.empty{display:grid;place-items:center;background:#ffffff10;border-style:dashed;color:#d7e6dc;font-size:28px}.tank-slot b{display:block;font-size:11px;position:relative;z-index:2}.tank-slot small{font-size:9px;color:#d9e7de;position:relative;z-index:2}.tank-slot .moss{position:absolute;left:0;right:0;bottom:20px;height:15px;background:#6fa658;border-radius:50% 50% 0 0}.tank-slot .tiny{position:absolute;bottom:7px;left:18px;width:24px;height:14px;border-radius:50%;background:repeating-linear-gradient(90deg,#eee0ba 0 4px,#56473e 5px 7px);animation:tinyWalk 4s linear infinite}.tank-slot:nth-child(2) .tiny{animation-delay:1.3s}.tank-slot:nth-child(3) .tiny{animation-delay:2.2s}@keyframes tinyWalk{0%{left:10px;transform:scaleX(1)}49%{left:calc(100% - 36px);transform:scaleX(1)}50%{transform:scaleX(-1)}100%{left:10px;transform:scaleX(-1)}}
+.room-object{position:absolute;border:0;background:transparent;color:white;text-shadow:0 3px 8px #000;font-weight:1000}.room-object span{display:block;font-size:40px}.room-object small{display:inline-block;margin-top:4px;background:#0c1712c9;border:1px solid #ffffff25;border-radius:999px;padding:5px 9px}.obj-box{left:24px;bottom:88px}.obj-micro{left:42%;bottom:92px;transform:translateX(-50%)}.obj-books{right:20px;bottom:91px}.obj-door{right:14px;top:410px}.door-shape{width:82px;height:132px;border:8px solid #563a28;border-radius:10px 10px 0 0;background:linear-gradient(90deg,#24392e,#314f3d);display:grid;place-items:center;font-size:34px;box-shadow:inset 0 0 30px #0007}.floor-pod{position:absolute;bottom:34px;width:54px;height:28px;border-radius:50%;background:repeating-linear-gradient(90deg,#d9cda9 0 7px,#4a4038 8px 11px);filter:drop-shadow(0 8px 6px #0008);animation:floorWalk 10s linear infinite}.floor-pod.p2{animation-duration:13s;animation-delay:-6s;bottom:58px;transform:scale(.72)}@keyframes floorWalk{0%{left:-65px;transform:scaleX(1)}48%{left:calc(100% + 10px);transform:scaleX(1)}50%{left:calc(100% + 10px);transform:scaleX(-1)}98%{left:-65px;transform:scaleX(-1)}100%{left:-65px;transform:scaleX(1)}}
+.lab-summary{margin-top:14px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.stat{text-align:center}.stat b{display:block;font-size:20px;color:var(--lime)}.stat small{color:var(--muted)}
+
+/* exploration */
+.explore-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.exp-card{position:relative;overflow:hidden;min-height:250px}.exp-card .big{font-size:44px}.exp-card h3{margin:8px 0 2px}.worker-list{min-height:64px;margin:10px 0;display:flex;flex-wrap:wrap;gap:6px}.worker{font-size:10px;background:#0b1812;border:1px solid var(--line);padding:6px 8px;border-radius:999px}.production{font-size:11px;color:#c6d6cd;line-height:1.5}.claim{margin-top:10px}
+
+/* inventory */
+.filters{display:flex;gap:8px;overflow:auto;padding-bottom:8px}.filters button{white-space:nowrap}.creature-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.creature-card{display:grid;grid-template-columns:68px 1fr;gap:10px;align-items:center}.creature-card h4{margin:0 0 4px;font-size:13px}.creature-card small{color:var(--muted)}
+
+/* enclosures */
+.enclosure-shelf{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.enc-slot{min-height:158px;position:relative;overflow:hidden}.enc-slot.empty{display:grid;place-items:center;border-style:dashed;text-align:center}.enc-slot .tank-art{height:78px;border:4px solid #5c4b3b;border-radius:14px;background:linear-gradient(#aee8e455 0 38%,#4b3528 38%);position:relative;overflow:hidden}.enc-slot .tank-art:after{content:"";position:absolute;left:6%;right:6%;bottom:12px;height:17px;border-radius:50%;background:#719859}.enc-slot h3{font-size:14px;margin:10px 0 4px}.enc-slot small{color:var(--muted)}.plus{font-size:34px}.catalog{display:grid;gap:8px}.product{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:12px;border-radius:16px;background:#0e2018;border:1px solid var(--line)}.product b{display:block}.product small{color:var(--muted)}
+
+/* nav/dialog/toast */
+nav{position:fixed;z-index:60;left:50%;bottom:0;transform:translateX(-50%);width:min(760px,100%);height:84px;padding:8px 8px calc(8px + env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(5,1fr);background:#091610f2;backdrop-filter:blur(16px);border-top:1px solid var(--line)}nav button{border:0;background:transparent;color:#789087;border-radius:16px;font-size:10px;font-weight:1000}nav button b{display:block;font-size:23px;margin-bottom:3px}nav button.active{background:#193128;color:var(--lime)}
+dialog{width:min(94%,480px);max-height:85vh;overflow:auto;border:1px solid var(--line);border-radius:24px;background:var(--panel);color:var(--cream);padding:16px;box-shadow:var(--shadow)}dialog::backdrop{background:#000b;backdrop-filter:blur(4px)}dialog h2{margin-top:4px}.modal-actions{display:flex;gap:8px;margin-top:14px}.modal-actions>*{flex:1}.toast{position:fixed;left:50%;bottom:98px;transform:translateX(-50%) translateY(20px);background:#07100df3;border:1px solid var(--line);padding:11px 15px;border-radius:999px;opacity:0;pointer-events:none;transition:.25s;z-index:100;white-space:nowrap;box-shadow:0 12px 30px #0008}.toast.show{opacity:1;transform:translateX(-50%)}
+.flash{position:fixed;inset:0;pointer-events:none;background:#fff;opacity:0;z-index:120}.flash.go{animation:flash .65s ease}@keyframes flash{0%{opacity:0}25%{opacity:.85}100%{opacity:0}}
+
+@media(max-width:620px){.box-grid,.explore-grid{grid-template-columns:1fr}.result-grid,.creature-list,.enclosure-shelf{grid-template-columns:1fr 1fr}.gacha-hero{min-height:245px}.hero-box{opacity:.78;right:8px;transform:scale(.88)}.gacha-hero h1{font-size:27px;max-width:260px}.room{min-height:610px}.obj-door{top:400px}.lab-summary{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:390px){main{padding:10px}.result-grid,.creature-list,.enclosure-shelf{grid-template-columns:1fr}.room{min-height:590px}.shelf{top:172px}.obj-door{transform:scale(.9);transform-origin:right top}.wallet{font-size:12px}.brand b{font-size:15px}}
 </style>
 </head>
 <body>
+<div id="splash" aria-label="ISOPOD LAB 로딩 화면">
+  <div class="sunray"></div>
+  <i class="leaf"></i><i class="leaf"></i><i class="leaf"></i><i class="leaf"></i><i class="leaf"></i><i class="leaf"></i>
+  <div class="splash-card">
+    <div class="splash-logo">ISOPOD<em>LAB</em></div>
+    <div class="splash-tag">상자를 열면 새로운 이야기가 시작됩니다.</div>
+    <div class="splash-sub">COLLECT · BREED · EXPLORE</div>
+    <div class="splash-pod"></div>
+  </div>
+</div>
+
 <div id="app">
 <header>
-  <div class="brand"><b id="pageTitle">ISOPOD LAB</b><small>v2.1 APP ALPHA · 자동저장</small></div>
+  <div class="brand"><b id="pageTitle">랜덤박스</b><small>v2.2 FULL · 자동저장</small></div>
   <div class="head-actions"><div class="wallet">🪙 <span id="money">0G</span></div><button class="icon-btn" id="settingsBtn">⚙️</button></div>
 </header>
 <main>
-<section id="home" class="view active">
-  <div class="hero"><span class="eyebrow">BREED · EXPLORE · COLLECT</span><h1>작은 생명들의 연구소</h1><p>랜덤박스에서 새로운 친구를 만나고, 사육하고, 세 곳의 탐사를 동시에 운영하세요.</p><div class="pod"></div></div>
-  <div class="quick-grid">
-    <button class="card ghost jump" data-view="gacha"><span class="big-icon">🎁</span><b>랜덤박스</b></button>
-    <button class="card ghost jump" data-view="explore"><span class="big-icon">🧭</span><b>탐사</b></button>
-    <button class="card ghost jump" data-view="inventory"><span class="big-icon">🧬</span><b>개체</b></button>
-  </div>
-  <div class="card" style="margin-top:14px"><h3>연구실 현황</h3><div id="homeStatus" class="muted"></div></div>
-</section>
+  <section id="gacha" class="view active">
+    <div class="gacha-hero">
+      <span class="eyebrow">TODAY'S DISCOVERY</span>
+      <h1>오늘은 어떤 친구를 만나게 될까요?</h1>
+      <p>작은 상자 안에서 꼬물꼬물… 새로운 친구들이 기다리고 있어요!</p>
+      <div class="hero-box" aria-hidden="true"><div class="spark s1">✨</div><div class="spark s2">✦</div><div class="spark s3">✨</div><div class="lid"></div><div class="body"></div></div>
+    </div>
+    <div class="box-grid">
+      <article class="card box-card"><button class="chance-btn" data-chance="basic">?</button><div class="icon">📦</div><h3>기본 랜덤박스</h3><div class="price">20,000G</div><div class="rates">일반 65% · 레어 24%<br>에픽 8% · 유니크 2.5% · 레전더리 0.5%</div><button class="primary wide draw" data-pool="basic" style="margin-top:12px">새 친구 5마리 만나기</button></article>
+      <article class="card box-card premium"><button class="chance-btn" data-chance="premium">?</button><div class="icon">✨</div><h3>프리미엄 랜덤박스</h3><div class="price">50,000G</div><div class="rates">일반 35% · 레어 38%<br>에픽 18% · 유니크 7% · 레전더리 2%</div><button class="primary wide draw" data-pool="premium" style="margin-top:12px">프리미엄 5마리 만나기</button></article>
+    </div>
+    <div id="drawResult" class="result-grid"></div>
+  </section>
 
-<section id="gacha" class="view">
-  <div class="section-title"><div><h2>랜덤박스 연구실</h2><small>각 박스에서 독립 개체 5마리 획득</small></div></div>
-  <div class="box-grid">
-    <div class="card"><span class="big-icon">📦</span><h3>기본 랜덤박스</h3><div class="price">20,000G</div><div class="rates">일반 65% · 레어 24%<br>에픽 8% · 유니크 2.5% · 레전더리 0.5%</div><button class="primary wide draw" data-pool="basic" style="margin-top:12px">새 친구 5마리 만나기</button></div>
-    <div class="card premium"><span class="big-icon">✨</span><h3>프리미엄 랜덤박스</h3><div class="price">50,000G</div><div class="rates">일반 35% · 레어 38%<br>에픽 18% · 유니크 7% · 레전더리 2%</div><button class="primary wide draw" data-pool="premium" style="margin-top:12px">프리미엄 5마리 만나기</button></div>
-  </div>
-  <div id="drawResult" class="result-grid"></div>
-</section>
+  <section id="lab" class="view">
+    <div class="section-head"><div><h1>내 연구실</h1><small>메뉴가 아니라, 당신의 방입니다.</small></div><span class="tag Rare">LAB Lv.<span id="labLevel">1</span></span></div>
+    <div class="room">
+      <div class="window"></div><div class="hanging">🌿</div><div class="lab-title">오늘도 연구실은 조용히 살아 움직입니다.</div>
+      <div class="shelf"><div id="roomTankRow" class="tank-row"></div><div class="shelf-board a"></div><div class="shelf-board b"></div></div>
+      <button class="room-object obj-box jump" data-view="gacha"><span>📦</span><small>랜덤박스</small></button>
+      <button class="room-object obj-micro jump" data-view="inventory"><span>🔬</span><small>개체</small></button>
+      <button class="room-object obj-books" id="bookBtn"><span>📚</span><small>도감 준비중</small></button>
+      <button class="room-object obj-door jump" data-view="explore"><div class="door-shape">🚪</div><small>탐사 나가기</small></button>
+      <div class="floor-pod"></div><div class="floor-pod p2"></div>
+    </div>
+    <div class="lab-summary"><div class="card stat"><b id="labSpecies">0</b><small>발견 종</small></div><div class="card stat"><b id="labCreatures">0</b><small>보유 개체</small></div><div class="card stat"><b id="labTanks">0</b><small>설치 사육통</small></div></div>
+  </section>
 
-<section id="explore" class="view">
-  <div class="section-title"><div><h2>자동 탐사</h2><small>시간제한 없이, 오프라인에서도 계속 채집</small></div></div>
-  <div class="notice">각 탐사에 <b>성체 최대 3마리</b>를 배치할 수 있어요. 포란체와 다른 탐사에 배치된 개체는 참가할 수 없습니다.</div>
-  <div id="exploreGrid" class="explore-grid"></div>
-</section>
+  <section id="explore" class="view">
+    <div class="section-head"><div><h1>자동 탐사</h1><small>성체를 배치하면 오프라인에서도 탐사가 계속됩니다.</small></div></div>
+    <div id="exploreGrid" class="explore-grid"></div>
+  </section>
 
-<section id="inventory" class="view">
-  <div class="section-title"><div><h2>보유 개체</h2><small>성체만 탐사 배치 가능 · 포란체 불가</small></div></div>
-  <div id="inventoryGrid" class="inventory-grid"></div>
-</section>
+  <section id="inventory" class="view">
+    <div class="section-head"><div><h1>보유 개체</h1><small>한국명은 크게, 학명은 작게 표시됩니다.</small></div><span id="countBadge" class="tag Normal">0마리</span></div>
+    <div class="filters"><button class="secondary filter active" data-rarity="all">전체</button><button class="ghost filter" data-rarity="Rare">레어+</button><button class="ghost filter" data-rarity="adult">성체</button></div>
+    <div id="creatureList" class="creature-list"></div>
+  </section>
 
-<section id="habitats" class="view">
-  <div class="section-title"><div><h2>사육통</h2><small>앱 버전 다음 스프린트에서 확장</small></div></div>
-  <div class="card"><h3>사육통 관리</h3><p class="muted">소형, 중형, NeoBox220, 비바리움, 테라리움 시스템을 이어서 연결합니다.</p></div>
-</section>
+  <section id="enclosures" class="view">
+    <div class="section-head"><div><h1>사육통</h1><small>빈 선반을 눌러 바로 설치할 수 있어요.</small></div><button class="secondary" id="openCatalog">구매</button></div>
+    <div id="enclosureShelf" class="enclosure-shelf"></div>
+  </section>
 </main>
+
 <nav>
-<button data-view="home" class="active"><b>🏠</b>연구실</button>
-<button data-view="gacha"><b>🎁</b>랜덤박스</button>
-<button data-view="explore"><b>🧭</b>탐사</button>
-<button data-view="inventory"><b>🧬</b>개체</button>
-<button data-view="habitats"><b>🪵</b>사육통</button>
+  <button data-view="lab"><b>🏠</b>연구실</button>
+  <button data-view="gacha" class="active"><b>📦</b>랜덤박스</button>
+  <button data-view="explore"><b>🧭</b>탐사</button>
+  <button data-view="inventory"><b>🧬</b>개체</button>
+  <button data-view="enclosures"><b>🪵</b>사육통</button>
 </nav>
 </div>
 
-<dialog id="workerDialog"><h3 id="workerTitle">탐사 개체 선택</h3><p class="muted">성체만 표시됩니다. 포란체와 다른 탐사 배치 개체는 선택할 수 없습니다.</p><div id="workerList" class="worker-list"></div><button id="closeWorker" class="ghost wide" style="margin-top:12px">닫기</button></dialog>
-<dialog id="settingsDialog"><h3>설정</h3><p class="muted">현재 저장 데이터는 기기에 자동 저장됩니다.</p><button id="resetBtn" class="danger wide">게임 데이터 초기화</button><button id="closeSettings" class="ghost wide" style="margin-top:8px">닫기</button></dialog>
-<div id="toast" class="toast"></div>
+<dialog id="chanceDialog"><h2>등장 확률</h2><div id="chanceText" class="muted"></div><div class="modal-actions"><button class="primary" onclick="chanceDialog.close()">확인</button></div></dialog>
+<dialog id="catalogDialog"><h2>사육통 설치</h2><p class="muted">구매하면 연구실 선반에 즉시 설치됩니다.</p><div id="catalogList" class="catalog"></div><div class="modal-actions"><button class="ghost" onclick="catalogDialog.close()">닫기</button></div></dialog>
+<dialog id="workerDialog"><h2>탐사 개체 배치</h2><p class="muted">성체만 배치할 수 있으며, 임신 개체와 중복 배치는 제외됩니다.</p><div id="workerChoices" class="catalog"></div><div class="modal-actions"><button class="ghost" onclick="workerDialog.close()">닫기</button></div></dialog>
+<dialog id="settingsDialog"><h2>설정</h2><p class="muted">진행 상황은 브라우저에 자동 저장됩니다.</p><div class="catalog"><button class="secondary" id="couponBtn">쿠폰 입력</button><button class="danger" id="resetBtn">데이터 초기화</button></div><div class="modal-actions"><button class="primary" onclick="settingsDialog.close()">완료</button></div></dialog>
+<dialog id="couponDialog"><h2>쿠폰 입력</h2><input id="couponInput" style="width:100%;padding:13px;border-radius:14px;border:1px solid var(--line);background:#0b1812;color:white" placeholder="쿠폰 코드를 입력하세요"><div class="modal-actions"><button class="ghost" onclick="couponDialog.close()">취소</button><button class="primary" id="applyCoupon">사용</button></div></dialog>
+<div class="toast" id="toast"></div><div class="flash" id="flash"></div>
 
 <script>
-const KEY='isopod_lab_v21_app_alpha';
-const SPECIES=[
-{id:'duck',name:'러버덕',sci:'Cubaris sp. "Rubber Ducky"'},
-{id:'tiger',name:'화이트 타이거',sci:'Cubaris sp. "White Tiger"'},
-{id:'panda',name:'판다 킹',sci:'Cubaris sp. "Panda King"'},
-{id:'dairy',name:'데어리 카우',sci:'Porcellio laevis'},
-{id:'magic',name:'매직 포션',sci:'Armadillidium vulgare'},
-{id:'helios',name:'헬리오스',sci:'Merulanella sp. "Helios"'}
+(()=>{
+const SAVE_KEY='ISOPOD_LAB_V22_FULL';
+const species=[
+ {ko:'화이트 타이거',sci:'Cubaris sp. “White Tiger”',rarity:'Rare'},
+ {ko:'러버덕키',sci:'Cubaris sp. “Rubber Ducky”',rarity:'Epic'},
+ {ko:'판다 킹',sci:'Cubaris sp. “Panda King”',rarity:'Rare'},
+ {ko:'데어리 카우',sci:'Porcellio laevis “Dairy Cow”',rarity:'Normal'},
+ {ko:'매직 포션',sci:'Armadillidium vulgare “Magic Potion”',rarity:'Rare'},
+ {ko:'오렌지 달마시안',sci:'Porcellio scaber “Orange Dalmatian”',rarity:'Normal'},
+ {ko:'앰버 비',sci:'Cubaris sp. “Amber Bee”',rarity:'Epic'},
+ {ko:'헬리오스',sci:'Cubaris sp. “Helios”',rarity:'Unique'},
+ {ko:'화이트 샤크',sci:'Cubaris sp. “White Shark”',rarity:'Unique'},
+ {ko:'블랙 엠퍼러',sci:'Cubaris sp. “Black Emperor”',rarity:'Legendary'},
+ {ko:'레드 타이거',sci:'Cubaris sp. “Red Tiger”',rarity:'Epic'},
+ {ko:'레몬 블루',sci:'Cubaris sp. “Lemon Blue”',rarity:'Rare'}
 ];
-const RATE={
-basic:[['Normal',65],['Rare',24],['Epic',8],['Unique',2.5],['Legendary',.5]],
-premium:[['Normal',35],['Rare',38],['Epic',18],['Unique',7],['Legendary',2]]
+const rarityOrder=['Normal','Rare','Epic','Unique','Legendary'];
+const growths=['유체','아성체','준성체','성체'];
+const rates={basic:[65,24,8,2.5,.5],premium:[35,38,18,7,2]};
+const enclosureProducts=[
+ {name:'Small',price:2000,cap:10},{name:'Medium',price:3000,cap:20},{name:'NeoBox220',price:15000,cap:35},{name:'Basic Vivarium',price:80000,cap:60},{name:'Terrarium',price:120000,cap:100}
+];
+const explorationDefs={
+ soil:{name:'흙 탐사',icon:'🌱',materials:['건조 낙엽','부숙나뭇잎','균사','마른뽕잎','참나무잎','구아바잎']},
+ wood:{name:'나무 탐사',icon:'🪵',materials:['부숙폐목','숯 조각','균사','건조 낙엽','참나무잎']},
+ gold:{name:'골드 탐사',icon:'🪙',materials:['Gold','Bonus Gold']}
 };
-const MAT_RATE={Normal:1,Rare:2,Epic:3,Unique:5,Legendary:8};
-const GOLD_RATE={Normal:150,Rare:250,Epic:400,Unique:650,Legendary:1000};
-const EXP={
-soil:{name:'흙 탐사',icon:'🌱',unit:'개',scene:'🪱🍂',items:['건조 낙엽','부숙나뭇잎','균사','마른뽕잎','참나무잎','구아바잎']},
-wood:{name:'나무 탐사',icon:'🪵',unit:'개',scene:'🍄🪵',items:['부숙폐목','숯 조각','균사','건조 낙엽','참나무잎']},
-gold:{name:'골드 탐사',icon:'🪙',unit:'G',scene:'✨🪙',items:['골드']}
-};
-function fresh(){
- const now=Date.now();
- return {money:300000,individuals:[
-  makePreset('tiger','Rare','성체','수컷',false),
-  makePreset('dairy','Normal','성체','암컷',false),
-  makePreset('magic','Epic','성체','암컷',false),
-  makePreset('duck','Rare','성체','수컷',false),
-  makePreset('panda','Unique','성체','암컷',true)
- ],explore:{soil:{workers:[],stored:0,last:now},wood:{workers:[],stored:0,last:now},gold:{workers:[],stored:0,last:now}},lastSave:now};
-}
-function makePreset(species,rarity,stage,sex,gravid){return {uid:crypto.randomUUID?crypto.randomUUID():Date.now()+Math.random(),species,rarity,stage,sex,gravid}}
-function load(){try{return Object.assign(fresh(),JSON.parse(localStorage.getItem(KEY)||'null')||{})}catch(e){return fresh()}}
-let state=load(),activeExp='soil';
-function save(){state.lastSave=Date.now();localStorage.setItem(KEY,JSON.stringify(state));renderMoney()}
-function fmt(n){return Math.floor(n).toLocaleString('ko-KR')}
-function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(window.__tt);window.__tt=setTimeout(()=>t.classList.remove('show'),1800)}
-function rarityPick(pool){let r=Math.random()*100,c=0;for(const [name,p] of RATE[pool]){c+=p;if(r<c)return name}return 'Normal'}
-function randomStage(){return ['유체','아성체','준성체','성체'][Math.floor(Math.random()*4)]}
-function draw(pool){
- const cost=pool==='basic'?20000:50000;if(state.money<cost)return toast('골드가 부족합니다.');
- state.money-=cost;const made=[];
- for(let i=0;i<5;i++){const s=SPECIES[Math.floor(Math.random()*SPECIES.length)];const ind=makePreset(s.id,rarityPick(pool),randomStage(),Math.random()<.5?'수컷':'암컷',false);state.individuals.push(ind);made.push(ind)}
- save();renderDraw(made);renderAll();toast('새로운 꼬물이들이 연구실에 도착했어요!');
-}
-function renderDraw(arr){document.getElementById('drawResult').innerHTML=arr.map((i,n)=>{const s=SPECIES.find(x=>x.id===i.species);return `<div class="result-card" style="animation-delay:${n*.07}s"><span class="rarity ${i.rarity}">${i.rarity}</span><b>${s.name}</b><small>${i.sex} · ${i.stage}</small></div>`}).join('')}
-function calcExplore(){
- const now=Date.now();
- Object.keys(EXP).forEach(k=>{
-   const e=state.explore[k];const hours=Math.max(0,(now-(e.last||now))/3600000);const speed=e.workers.reduce((sum,id)=>{const i=state.individuals.find(x=>x.uid===id);return sum+(i?(k==='gold'?GOLD_RATE[i.rarity]:MAT_RATE[i.rarity]):0)},0);
-   e.stored=(e.stored||0)+hours*speed;e.last=now;
- });
- save();
-}
-function expSpeed(k){return state.explore[k].workers.reduce((sum,id)=>{const i=state.individuals.find(x=>x.uid===id);return sum+(i?(k==='gold'?GOLD_RATE[i.rarity]:MAT_RATE[i.rarity]):0)},0)}
-function renderExplore(){
- calcExplore();
- document.getElementById('exploreGrid').innerHTML=Object.entries(EXP).map(([k,x])=>{
- const e=state.explore[k],speed=expSpeed(k);
- const slots=[0,1,2].map(n=>{const id=e.workers[n],i=state.individuals.find(v=>v.uid===id);if(!i)return `<div class="slot empty-slot"><span>빈 자리</span><button class="ghost addWorker" data-exp="${k}">＋ 배치</button></div>`;const s=SPECIES.find(v=>v.id===i.species);return `<div class="slot"><span><b>${s.name}</b><br><span class="muted">${i.rarity} · +${k==='gold'?fmt(GOLD_RATE[i.rarity])+'G':MAT_RATE[i.rarity]+'개'}/시간</span></span><button class="danger removeWorker" data-exp="${k}" data-id="${i.uid}">빼기</button></div>`}).join('');
- return `<div class="card explore-card ${k==='gold'?'gold':''}"><h3>${x.icon} ${x.name}</h3><div class="explore-scene">${x.scene}</div><div class="speed">시간당 ${fmt(speed)}${x.unit}</div><div class="stored">보관 중 ${fmt(e.stored||0)}${x.unit}</div><div class="slots">${slots}</div><button class="primary wide claim" data-exp="${k}" ${e.stored<1?'disabled':''}>채집물 받기</button><div class="muted" style="margin-top:9px">${k==='gold'?'골드를 자동으로 채집합니다.':x.items.join(' · ')}</div></div>`
- }).join('');
- document.querySelectorAll('.addWorker').forEach(b=>b.onclick=()=>openWorkers(b.dataset.exp));
- document.querySelectorAll('.removeWorker').forEach(b=>b.onclick=()=>removeWorker(b.dataset.exp,b.dataset.id));
- document.querySelectorAll('.claim').forEach(b=>b.onclick=()=>claim(b.dataset.exp));
-}
-function openWorkers(k){activeExp=k;const occupied=new Set(Object.values(state.explore).flatMap(e=>e.workers));const eligible=state.individuals.filter(i=>i.stage==='성체');document.getElementById('workerTitle').textContent=EXP[k].icon+' '+EXP[k].name+' 개체 선택';document.getElementById('workerList').innerHTML=eligible.length?eligible.map(i=>{const s=SPECIES.find(x=>x.id===i.species),blocked=i.gravid||occupied.has(i.uid);return `<button class="worker" data-id="${i.uid}" ${blocked?'disabled':''}><span><b>${s.name}</b><div class="meta">${i.rarity} · ${i.sex}${i.gravid?' · 포란 중':''}</div></span><strong>+${k==='gold'?fmt(GOLD_RATE[i.rarity])+'G':MAT_RATE[i.rarity]+'개'}/h</strong></button>`}).join(''):'<div class="muted">배치 가능한 성체가 없습니다.</div>';document.querySelectorAll('#workerList .worker:not([disabled])').forEach(b=>b.onclick=()=>addWorker(k,b.dataset.id));document.getElementById('workerDialog').showModal()}
-function addWorker(k,id){calcExplore();if(state.explore[k].workers.length>=3)return toast('최대 3마리까지 배치할 수 있습니다.');state.explore[k].workers.push(id);save();document.getElementById('workerDialog').close();renderAll();toast('탐사에 배치했습니다.')}
-function removeWorker(k,id){calcExplore();state.explore[k].workers=state.explore[k].workers.filter(x=>x!==id);save();renderAll();toast('탐사에서 돌아왔습니다.')}
-function claim(k){calcExplore();const e=state.explore[k],amount=Math.floor(e.stored||0);if(amount<1)return;if(k==='gold')state.money+=amount;e.stored-=amount;save();renderAll();toast(k==='gold'?`${fmt(amount)}G를 받았습니다.`:`${EXP[k].name} 채집물 ${fmt(amount)}개를 받았습니다.`)}
-function renderInventory(){document.getElementById('inventoryGrid').innerHTML=state.individuals.map(i=>{const s=SPECIES.find(x=>x.id===i.species);const assigned=Object.entries(state.explore).find(([,e])=>e.workers.includes(i.uid));return `<div class="card"><span class="rarity ${i.rarity}">${i.rarity}</span><h3>${s.name}</h3><div class="muted">${s.sci}</div><p>${i.sex} · ${i.stage}${i.gravid?' · 🥚 포란 중':''}</p>${assigned?`<div class="notice">${EXP[assigned[0]].name} 배치 중</div>`:''}</div>`}).join('')}
-function renderHome(){const working=Object.values(state.explore).reduce((n,e)=>n+e.workers.length,0);document.getElementById('homeStatus').innerHTML=`보유 개체 <b>${state.individuals.length}마리</b> · 탐사 중 <b>${working}마리</b><br>흙 ${fmt(state.explore.soil.stored||0)}개 · 나무 ${fmt(state.explore.wood.stored||0)}개 · 골드 ${fmt(state.explore.gold.stored||0)}G`}
-function renderMoney(){document.getElementById('money').textContent=fmt(state.money)+'G'}
-function renderAll(){renderMoney();renderHome();renderInventory();if(document.getElementById('explore').classList.contains('active'))renderExplore()}
-function switchView(id){document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id===id));document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.view===id));document.getElementById('pageTitle').textContent={home:'ISOPOD LAB',gacha:'랜덤박스 연구실',explore:'자동 탐사',inventory:'보유 개체',habitats:'사육통'}[id]||'ISOPOD LAB';if(id==='explore')renderExplore();if(id==='inventory')renderInventory();if(id==='home')renderHome();window.scrollTo({top:0,behavior:'smooth'})}
-document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>switchView(b.dataset.view)));
+const output={Normal:[1,150],Rare:[2,250],Epic:[3,400],Unique:[5,650],Legendary:[8,1000]};
+const defaultState=()=>({money:300000,creatures:[],enclosures:[],coupon:false,lastTick:Date.now(),explore:{soil:{workers:[],stock:0},wood:{workers:[],stock:0},gold:{workers:[],stock:0}},labLevel:1});
+let state=load();let currentExplore='soil';let filter='all';
+function load(){try{return Object.assign(defaultState(),JSON.parse(localStorage.getItem(SAVE_KEY)||'{}'))}catch(e){return defaultState()}}
+function save(){state.lastTick=Date.now();localStorage.setItem(SAVE_KEY,JSON.stringify(state));renderHeader()}
+function money(n){return Math.floor(n).toLocaleString('ko-KR')+'G'}
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2100)}
+function showView(id){document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id===id));document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.view===id));const titles={lab:'연구실',gacha:'랜덤박스',explore:'탐사',inventory:'개체',enclosures:'사육통'};pageTitle.textContent=titles[id];if(id==='lab')renderLab();if(id==='inventory')renderInventory();if(id==='explore')renderExplore();if(id==='enclosures')renderEnclosures();window.scrollTo({top:0,behavior:'smooth'})}
+function renderHeader(){moneyEl.textContent=money(state.money)}
+const moneyEl=document.getElementById('money');
+function randomRarity(pool){let r=Math.random()*100,acc=0;for(let i=0;i<5;i++){acc+=rates[pool][i];if(r<acc)return rarityOrder[i]}return 'Normal'}
+function makeCreature(pool){const rarity=randomRarity(pool);const poolSpecies=species.filter(s=>s.rarity===rarity);const sp=poolSpecies[Math.floor(Math.random()*poolSpecies.length)]||species[Math.floor(Math.random()*species.length)];const growth=growths[Math.floor(Math.random()*growths.length)];return {id:crypto.randomUUID?crypto.randomUUID():Date.now()+'_'+Math.random(),ko:sp.ko,sci:sp.sci,rarity,sex:Math.random()<.5?'수컷':'암컷',growth,gravid:false,trait:rarity==='Unique'?'고속 성장':rarity==='Legendary'?'고속 성장 · 탐사 본능':'없음'} }
+function draw(pool){const cost=pool==='basic'?20000:50000;if(state.money<cost)return toast('골드가 부족합니다.');state.money-=cost;const arr=Array.from({length:5},()=>makeCreature(pool));state.creatures.push(...arr);document.getElementById('flash').classList.add('go');setTimeout(()=>document.getElementById('flash').classList.remove('go'),700);drawResult.innerHTML=arr.map(c=>`<article class="card result-card"><span class="tag ${c.rarity}">${c.rarity}</span><div class="mini-pod" style="margin-top:12px"></div><b>${c.ko}</b><small>${c.sex} · ${c.growth}</small></article>`).join('');toast('새로운 꼬물이들이 연구실에 도착했어요!');save();renderAll()}
+function renderLab(){labLevel.textContent=state.labLevel;labSpecies.textContent=new Set(state.creatures.map(c=>c.ko)).size;labCreatures.textContent=state.creatures.length;labTanks.textContent=state.enclosures.length;const slots=Math.max(3,Math.min(6,state.enclosures.length+1));roomTankRow.innerHTML=Array.from({length:slots},(_,i)=>{const e=state.enclosures[i];return e?`<button class="tank-slot" data-view="enclosures"><b>${e.name}</b><small>${e.count||0}마리</small><i class="moss"></i><i class="tiny"></i></button>`:`<button class="tank-slot empty open-catalog">+</button>`}).join('');roomTankRow.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>showView(b.dataset.view));roomTankRow.querySelectorAll('.open-catalog').forEach(b=>b.onclick=()=>catalogDialog.showModal())}
+function calcExplore(){const now=Date.now(),hours=Math.min(24,(now-state.lastTick)/3600000);if(hours<=0)return;for(const [key,ex] of Object.entries(state.explore)){let mat=0,gold=0;ex.workers.forEach(id=>{const c=state.creatures.find(x=>x.id===id);if(c){mat+=output[c.rarity][0]*hours;gold+=output[c.rarity][1]*hours}});ex.stock=(ex.stock||0)+(key==='gold'?gold:mat)}state.lastTick=now;localStorage.setItem(SAVE_KEY,JSON.stringify(state))}
+function renderExplore(){calcExplore();exploreGrid.innerHTML=Object.entries(explorationDefs).map(([key,d])=>{const ex=state.explore[key];let perH=0;ex.workers.forEach(id=>{const c=state.creatures.find(x=>x.id===id);if(c)perH+=key==='gold'?output[c.rarity][1]:output[c.rarity][0]});return `<article class="card exp-card"><div class="big">${d.icon}</div><h3>${d.name}</h3><div class="muted">최대 3마리 · 자동 진행</div><div class="worker-list">${ex.workers.length?ex.workers.map(id=>{const c=state.creatures.find(x=>x.id===id);return c?`<span class="worker">${c.ko}</span>`:''}).join(''):'<span class="muted">배치된 개체 없음</span>'}</div><div class="production">시간당 ${key==='gold'?money(perH):perH.toFixed(1)+'개'}<br>누적 ${key==='gold'?money(ex.stock||0):(ex.stock||0).toFixed(1)+'개'}</div><button class="secondary wide assign" data-key="${key}" style="margin-top:10px">개체 배치</button><button class="primary wide claim" data-key="${key}">보상 받기</button></article>`}).join('');document.querySelectorAll('.assign').forEach(b=>b.onclick=()=>openWorkers(b.dataset.key));document.querySelectorAll('.claim').forEach(b=>b.onclick=()=>claimExplore(b.dataset.key))}
+function openWorkers(key){currentExplore=key;const used=new Set(Object.entries(state.explore).filter(([k])=>k!==key).flatMap(([,v])=>v.workers));const adults=state.creatures.filter(c=>c.growth==='성체'&&!c.gravid&&!used.has(c.id));workerChoices.innerHTML=adults.length?adults.map(c=>{const checked=state.explore[key].workers.includes(c.id);return `<button class="product worker-toggle" data-id="${c.id}"><span><b>${c.ko}</b><small>${c.rarity} · ${c.sex}</small></span><span>${checked?'✅':'➕'}</span></button>`}).join(''):'<div class="muted">배치 가능한 성체가 없습니다.</div>';workerChoices.querySelectorAll('.worker-toggle').forEach(b=>b.onclick=()=>toggleWorker(key,b.dataset.id));workerDialog.showModal()}
+function toggleWorker(key,id){const arr=state.explore[key].workers;const i=arr.indexOf(id);if(i>=0)arr.splice(i,1);else{if(arr.length>=3)return toast('탐사당 최대 3마리입니다.');arr.push(id)}save();openWorkers(key);renderExplore()}
+function claimExplore(key){calcExplore();const ex=state.explore[key];if((ex.stock||0)<.01)return toast('아직 모인 보상이 없습니다.');if(key==='gold'){state.money+=Math.floor(ex.stock);toast(`${money(ex.stock)}을 획득했습니다.`)}else{toast(`${explorationDefs[key].name} 재료 ${Math.floor(ex.stock)}개 획득!`)}ex.stock=0;save();renderExplore()}
+function renderInventory(){let list=[...state.creatures];if(filter==='Rare')list=list.filter(c=>rarityOrder.indexOf(c.rarity)>=1);if(filter==='adult')list=list.filter(c=>c.growth==='성체');list.sort((a,b)=>rarityOrder.indexOf(b.rarity)-rarityOrder.indexOf(a.rarity));countBadge.textContent=state.creatures.length+'마리';creatureList.innerHTML=list.length?list.map(c=>`<article class="card creature-card"><div class="mini-pod"></div><div><span class="tag ${c.rarity}">${c.rarity}</span><h4>${c.ko}</h4><small><i>${c.sci}</i><br>${c.sex} · ${c.growth}${c.trait!=='없음'?'<br>특성: '+c.trait:''}</small></div></article>`).join(''):'<div class="card muted">아직 보유한 개체가 없습니다.</div>'}
+function renderEnclosures(){const slots=Math.max(4,state.enclosures.length+1);enclosureShelf.innerHTML=Array.from({length:slots},(_,i)=>{const e=state.enclosures[i];return e?`<article class="card enc-slot"><div class="tank-art"></div><h3>${e.name}</h3><small>수용량 ${e.cap} · 현재 ${e.count||0}마리</small></article>`:`<button class="card enc-slot empty open-catalog"><div><div class="plus">＋</div><b>빈 선반</b><br><small>사육통 설치</small></div></button>`}).join('');document.querySelectorAll('.open-catalog').forEach(b=>b.onclick=()=>catalogDialog.showModal())}
+function renderCatalog(){catalogList.innerHTML=enclosureProducts.map(p=>`<button class="product buy-enc" data-name="${p.name}"><span><b>${p.name}</b><small>수용량 ${p.cap}</small></span><strong>${money(p.price)}</strong></button>`).join('');catalogList.querySelectorAll('.buy-enc').forEach(b=>b.onclick=()=>buyEnclosure(b.dataset.name))}
+function buyEnclosure(name){const p=enclosureProducts.find(x=>x.name===name);if(state.money<p.price)return toast('골드가 부족합니다.');state.money-=p.price;state.enclosures.push({...p,id:Date.now()+'_'+Math.random(),count:0});catalogDialog.close();toast('새 사육통이 설치되었습니다!');save();renderAll();setTimeout(()=>showView('enclosures'),250)}
+function renderAll(){renderHeader();renderLab();renderInventory();renderExplore();renderEnclosures()}
+function applyOffline(){calcExplore();save()}
+
+document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>showView(b.dataset.view)));
 document.querySelectorAll('.draw').forEach(b=>b.onclick=()=>draw(b.dataset.pool));
-document.getElementById('closeWorker').onclick=()=>document.getElementById('workerDialog').close();
-document.getElementById('settingsBtn').onclick=()=>document.getElementById('settingsDialog').showModal();
-document.getElementById('closeSettings').onclick=()=>document.getElementById('settingsDialog').close();
-document.getElementById('resetBtn').onclick=()=>{if(confirm('모든 게임 데이터를 초기화할까요?')){localStorage.removeItem(KEY);state=fresh();save();document.getElementById('settingsDialog').close();renderAll();toast('새 연구실을 시작했습니다.')}};
-window.addEventListener('beforeunload',()=>{calcExplore();save()});
-setInterval(()=>{if(document.getElementById('explore').classList.contains('active'))renderExplore();else renderHome()},15000);
-calcExplore();renderAll();
+document.querySelectorAll('.chance-btn').forEach(b=>b.onclick=()=>{const p=b.dataset.chance;chanceText.innerHTML=p==='basic'?'일반 65%<br>레어 24%<br>에픽 8%<br>유니크 2.5%<br>레전더리 0.5%':'일반 35%<br>레어 38%<br>에픽 18%<br>유니크 7%<br>레전더리 2%';chanceDialog.showModal()});
+document.querySelectorAll('.filter').forEach(b=>b.onclick=()=>{filter=b.dataset.rarity;document.querySelectorAll('.filter').forEach(x=>{x.className='ghost filter';if(x===b)x.className='secondary filter active'});renderInventory()});
+openCatalog.onclick=()=>catalogDialog.showModal();settingsBtn.onclick=()=>settingsDialog.showModal();bookBtn.onclick=()=>toast('도감은 다음 업데이트에서 열립니다.');
+couponBtn.onclick=()=>{settingsDialog.close();couponDialog.showModal()};applyCoupon.onclick=()=>{const code=couponInput.value.trim();if(code==='비밀친구START'&&!state.coupon){state.money+=100000;state.enclosures.push({...enclosureProducts[0],id:'coupon1',count:0},{...enclosureProducts[0],id:'coupon2',count:0},{...enclosureProducts[1],id:'coupon3',count:0});state.coupon=true;save();renderAll();couponDialog.close();toast('쿠폰 보상이 지급되었습니다!')}else toast(state.coupon?'이미 사용한 쿠폰입니다.':'쿠폰 코드를 확인해 주세요.')};
+resetBtn.onclick=()=>{if(confirm('모든 데이터를 초기화할까요?')){localStorage.removeItem(SAVE_KEY);state=defaultState();save();renderAll();settingsDialog.close();showView('gacha');toast('새 연구실이 준비되었습니다.')}};
+renderCatalog();applyOffline();renderAll();setTimeout(()=>document.getElementById('splash').classList.add('hide'),1600);setTimeout(()=>document.getElementById('splash').remove(),2250);
+})();
 </script>
-</body></html>
+</body>
+</html>
