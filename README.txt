@@ -1,4 +1,13 @@
-ISOPOD LAB v2.1 단일 파일 안정판
+ISOPOD LAB v1.4.2 MOBILE TAP FIX
 
-index.html 하나만 열어도 CSS, JavaScript, 이미지가 모두 포함되어 작동합니다.
-Netlify에는 이 폴더 또는 ZIP을 그대로 배포하세요.
+수정 내용
+- Android 터치 입력을 pointerup 기준으로 안정화
+- 시작, 새 게임, 랜덤박스 선택/열기, 하단 메뉴, 설정 버튼 우선 처리
+- 터치 후 발생하는 중복 click 차단
+- 숨은 팝업이 터치를 가로채지 않도록 정리
+- 하단 메뉴 6칸 정렬 수정
+- 기존 저장 데이터 유지
+
+배포
+압축을 풀고 모든 파일을 GitHub 저장소 최상단에 덮어쓴 뒤 Commit changes.
+휴대폰에서는 사이트 탭을 완전히 닫고 다시 열어 확인.
