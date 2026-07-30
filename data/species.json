@@ -1,0 +1,356 @@
+[
+  {
+    "id": "dairy_cow",
+    "name": "Dairy Cow",
+    "rarity": "노말",
+    "basePower": 84
+  },
+  {
+    "id": "powder_blue",
+    "name": "Powder Blue",
+    "rarity": "노말",
+    "basePower": 88
+  },
+  {
+    "id": "powder_orange",
+    "name": "Powder Orange",
+    "rarity": "노말",
+    "basePower": 92
+  },
+  {
+    "id": "giant_canyon",
+    "name": "Giant Canyon",
+    "rarity": "노말",
+    "basePower": 96
+  },
+  {
+    "id": "zebra",
+    "name": "Zebra",
+    "rarity": "노말",
+    "basePower": 100
+  },
+  {
+    "id": "orange_dalmatian",
+    "name": "Orange Dalmatian",
+    "rarity": "노말",
+    "basePower": 104
+  },
+  {
+    "id": "wild_type",
+    "name": "Wild Type",
+    "rarity": "노말",
+    "basePower": 108
+  },
+  {
+    "id": "milkback",
+    "name": "Milkback",
+    "rarity": "노말",
+    "basePower": 112
+  },
+  {
+    "id": "peach",
+    "name": "Peach",
+    "rarity": "노말",
+    "basePower": 116
+  },
+  {
+    "id": "oreo_crumble",
+    "name": "Oreo Crumble",
+    "rarity": "노말",
+    "basePower": 120
+  },
+  {
+    "id": "magic_potion",
+    "name": "Magic Potion",
+    "rarity": "노말",
+    "basePower": 124
+  },
+  {
+    "id": "party_mix",
+    "name": "Party Mix",
+    "rarity": "노말",
+    "basePower": 128
+  },
+  {
+    "id": "laevis_orange",
+    "name": "Laevis Orange",
+    "rarity": "노말",
+    "basePower": 132
+  },
+  {
+    "id": "whiteout",
+    "name": "Whiteout",
+    "rarity": "노말",
+    "basePower": 136
+  },
+  {
+    "id": "snow_white",
+    "name": "Snow White",
+    "rarity": "노말",
+    "basePower": 140
+  },
+  {
+    "id": "panda_king",
+    "name": "Panda King",
+    "rarity": "노말",
+    "basePower": 144
+  },
+  {
+    "id": "pak_chong",
+    "name": "Pak Chong",
+    "rarity": "노말",
+    "basePower": 148
+  },
+  {
+    "id": "shiro_utsuri",
+    "name": "Shiro Utsuri",
+    "rarity": "노말",
+    "basePower": 152
+  },
+  {
+    "id": "red_edge",
+    "name": "Red Edge",
+    "rarity": "노말",
+    "basePower": 156
+  },
+  {
+    "id": "orange_vigor",
+    "name": "Orange Vigor",
+    "rarity": "노말",
+    "basePower": 160
+  },
+  {
+    "id": "granulatum",
+    "name": "Granulatum",
+    "rarity": "레어",
+    "basePower": 164
+  },
+  {
+    "id": "klugii_montenegro",
+    "name": "Klugii Montenegro",
+    "rarity": "레어",
+    "basePower": 168
+  },
+  {
+    "id": "klugii_dubrovnik",
+    "name": "Klugii Dubrovnik",
+    "rarity": "레어",
+    "basePower": 172
+  },
+  {
+    "id": "gestroi",
+    "name": "Gestroi",
+    "rarity": "레어",
+    "basePower": 176
+  },
+  {
+    "id": "hoffmannseggi",
+    "name": "Hoffmannseggi",
+    "rarity": "레어",
+    "basePower": 180
+  },
+  {
+    "id": "expansus",
+    "name": "Expansus",
+    "rarity": "레어",
+    "basePower": 184
+  },
+  {
+    "id": "bolivari",
+    "name": "Bolivari",
+    "rarity": "레어",
+    "basePower": 188
+  },
+  {
+    "id": "peraccae",
+    "name": "Peraccae",
+    "rarity": "레어",
+    "basePower": 192
+  },
+  {
+    "id": "werneri",
+    "name": "Werneri",
+    "rarity": "레어",
+    "basePower": 196
+  },
+  {
+    "id": "haasi",
+    "name": "Haasi",
+    "rarity": "레어",
+    "basePower": 200
+  },
+  {
+    "id": "magnificus",
+    "name": "Magnificus",
+    "rarity": "레어",
+    "basePower": 204
+  },
+  {
+    "id": "flavomarginatus",
+    "name": "Flavomarginatus",
+    "rarity": "레어",
+    "basePower": 208
+  },
+  {
+    "id": "jupiter",
+    "name": "Jupiter",
+    "rarity": "레어",
+    "basePower": 212
+  },
+  {
+    "id": "lemon_blue",
+    "name": "Lemon Blue",
+    "rarity": "레어",
+    "basePower": 216
+  },
+  {
+    "id": "amber",
+    "name": "Amber",
+    "rarity": "레어",
+    "basePower": 220
+  },
+  {
+    "id": "silver_ghost",
+    "name": "Silver Ghost",
+    "rarity": "레어",
+    "basePower": 224
+  },
+  {
+    "id": "white_tiger",
+    "name": "White Tiger",
+    "rarity": "에픽",
+    "basePower": 228
+  },
+  {
+    "id": "rubber_bee",
+    "name": "Rubber Bee",
+    "rarity": "에픽",
+    "basePower": 232
+  },
+  {
+    "id": "red_panda",
+    "name": "Red Panda",
+    "rarity": "에픽",
+    "basePower": 236
+  },
+  {
+    "id": "merulanella_tricolor",
+    "name": "Merulanella Tricolor",
+    "rarity": "에픽",
+    "basePower": 240
+  },
+  {
+    "id": "scarlet",
+    "name": "Scarlet",
+    "rarity": "에픽",
+    "basePower": 244
+  },
+  {
+    "id": "ember_bee",
+    "name": "Ember Bee",
+    "rarity": "에픽",
+    "basePower": 248
+  },
+  {
+    "id": "thai_spiky",
+    "name": "Thai Spiky",
+    "rarity": "에픽",
+    "basePower": 252
+  },
+  {
+    "id": "red_diablo",
+    "name": "Red Diablo",
+    "rarity": "에픽",
+    "basePower": 256
+  },
+  {
+    "id": "yellow_panda",
+    "name": "Yellow Panda",
+    "rarity": "에픽",
+    "basePower": 260
+  },
+  {
+    "id": "white_skull",
+    "name": "White Skull",
+    "rarity": "에픽",
+    "basePower": 264
+  },
+  {
+    "id": "rubber_ducky",
+    "name": "Rubber Ducky",
+    "rarity": "유니크",
+    "basePower": 268
+  },
+  {
+    "id": "blonde_ducky",
+    "name": "Blonde Ducky",
+    "rarity": "유니크",
+    "basePower": 272
+  },
+  {
+    "id": "pink_ducky",
+    "name": "Pink Ducky",
+    "rarity": "유니크",
+    "basePower": 276
+  },
+  {
+    "id": "cappuccino",
+    "name": "Cappuccino",
+    "rarity": "유니크",
+    "basePower": 280
+  },
+  {
+    "id": "crystal_white",
+    "name": "Crystal White",
+    "rarity": "유니크",
+    "basePower": 284
+  },
+  {
+    "id": "spiky_pineapple",
+    "name": "Spiky Pineapple",
+    "rarity": "유니크",
+    "basePower": 288
+  },
+  {
+    "id": "red_tiger",
+    "name": "Red Tiger",
+    "rarity": "유니크",
+    "basePower": 292
+  },
+  {
+    "id": "black_panda",
+    "name": "Black Panda",
+    "rarity": "유니크",
+    "basePower": 296
+  },
+  {
+    "id": "helios",
+    "name": "Helios",
+    "rarity": "레전더리",
+    "basePower": 300
+  },
+  {
+    "id": "aurora",
+    "name": "Aurora",
+    "rarity": "레전더리",
+    "basePower": 304
+  },
+  {
+    "id": "galaxy",
+    "name": "Galaxy",
+    "rarity": "레전더리",
+    "basePower": 308
+  },
+  {
+    "id": "lava",
+    "name": "Lava",
+    "rarity": "레전더리",
+    "basePower": 312
+  },
+  {
+    "id": "prismatic",
+    "name": "Prismatic",
+    "rarity": "레전더리",
+    "basePower": 316
+  }
+]

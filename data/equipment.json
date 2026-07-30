@@ -1,0 +1,60 @@
+{
+  "hat": [
+    {
+      "id": "mushroom_hat",
+      "name": "버섯모자",
+      "basePower": 20
+    },
+    {
+      "id": "party_hat",
+      "name": "꼬깔모자",
+      "basePower": 35
+    },
+    {
+      "id": "crown",
+      "name": "왕관",
+      "basePower": 60
+    }
+  ],
+  "weapon": [
+    {
+      "id": "twig",
+      "name": "나뭇가지",
+      "basePower": 20
+    },
+    {
+      "id": "butterfly_net",
+      "name": "잠자리채",
+      "basePower": 35
+    },
+    {
+      "id": "collecting_net",
+      "name": "채집망",
+      "basePower": 60
+    }
+  ],
+  "necklace": [
+    {
+      "id": "maple_necklace",
+      "name": "단풍목걸이",
+      "basePower": 45
+    }
+  ],
+  "aura": [
+    {
+      "id": "green_aura",
+      "name": "초록 오라",
+      "basePower": 25
+    },
+    {
+      "id": "lightning_aura",
+      "name": "번개 오라",
+      "basePower": 45
+    },
+    {
+      "id": "gold_aura",
+      "name": "황금 오라",
+      "basePower": 70
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+
+:root{
+  --bg:#111612;
+  --panel:#1a211b;
+  --panel2:#222b23;
+  --line:#344036;
+  --text:#f4f3ea;
+  --muted:#aeb8aa;
+  --accent:#d4f36b;
+  --accent2:#ffce6a;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 10% 0%, #263426 0, transparent 36%),
+    linear-gradient(180deg,#101511,#0a0d0b);
+  color:var(--text);
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+button{font:inherit}
+#app{width:min(920px,100%);margin:auto;padding:18px}
+.topbar{display:flex;justify-content:space-between;align-items:end;gap:12px;margin-bottom:14px}
+h1{margin:2px 0 0;font-size:clamp(28px,6vw,52px);letter-spacing:-2px}
+.eyebrow{font-size:11px;color:var(--accent);letter-spacing:2px}
+.gold{background:#252b20;border:1px solid #4c573b;border-radius:999px;padding:10px 14px;font-weight:800;white-space:nowrap}
+.terrarium{
+  height:280px;position:relative;overflow:hidden;border-radius:26px;
+  border:2px solid #536454;background:
+  linear-gradient(180deg,#284933 0 54%,#3c2f24 55% 100%);
+  box-shadow:inset 0 0 40px #0008,0 20px 60px #0007;
+}
+.glass-shine{position:absolute;inset:0;background:linear-gradient(120deg,#fff1 0 20%,transparent 21% 100%);pointer-events:none}
+.soil{position:absolute;left:0;right:0;bottom:0;height:45%;background:radial-gradient(circle at 20% 0,#65503b 0 4px,transparent 5px),linear-gradient(#4a382b,#2c211b)}
+.leaf,.mushroom{position:absolute;z-index:2;font-size:38px;filter:drop-shadow(0 8px 6px #0007)}
+.leaf-a{left:9%;bottom:28px;transform:rotate(-18deg)}
+.leaf-b{right:12%;bottom:25px;transform:rotate(22deg)}
+.mushroom{left:50%;bottom:35px;font-size:45px}
+.isopod-stage{position:absolute;inset:0;z-index:4}
+.pod{
+  --scale:1;
+  position:absolute;width:78px;height:42px;
+  border-radius:52% 52% 45% 45%;
+  transform:scale(var(--scale));
+  background:repeating-linear-gradient(90deg,#ece7d7 0 8px,#393b39 9px 14px);
+  border:2px solid #101210;box-shadow:0 8px 10px #0008;
+  animation:walk 7s linear infinite alternate;
+}
+.pod::before,.pod::after{
+  content:"";position:absolute;top:4px;width:18px;height:2px;background:#111;transform-origin:right center
+}
+.pod::before{left:-14px;transform:rotate(25deg)}
+.pod::after{left:-14px;top:12px;transform:rotate(-15deg)}
+.pod .eye{position:absolute;right:8px;top:9px;width:5px;height:5px;border-radius:50%;background:#fff}
+@keyframes walk{from{translate:-6px 0}to{translate:40px -6px}}
+.tabs{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:14px 0}
+.tabs button{
+  border:1px solid var(--line);background:var(--panel);color:var(--muted);
+  padding:12px 6px;border-radius:14px;cursor:pointer;font-weight:700
+}
+.tabs button.active{background:var(--accent);color:#17200f;border-color:var(--accent)}
+.panel{
+  min-height:260px;background:linear-gradient(180deg,var(--panel2),var(--panel));
+  border:1px solid var(--line);border-radius:22px;padding:20px
+}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.card{background:#121713;border:1px solid #354137;border-radius:16px;padding:15px}
+.card h3{margin:0 0 8px}
+.stat{font-size:26px;font-weight:900}
+.muted{color:var(--muted)}
+.primary,.secondary{
+  border:0;border-radius:13px;padding:12px 16px;font-weight:900;cursor:pointer
+}
+.primary{background:var(--accent);color:#19210f}
+.secondary{background:#303a31;color:var(--text)}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.progress{height:12px;background:#0d110e;border-radius:999px;overflow:hidden}
+.progress>div{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.codex{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:9px;max-height:430px;overflow:auto}
+.entry{background:#111612;border:1px solid #333d35;border-radius:14px;padding:10px;min-height:95px}
+.entry.locked{filter:grayscale(1);opacity:.45}
+.rarity-노말{color:#eee}
+.rarity-레어{color:#72a7ff}
+.rarity-에픽{color:#c78cff}
+.rarity-유니크{color:#ffad57}
+.rarity-레전더리{color:#ffe36e;text-shadow:0 0 10px #ffd90088}
+.slot{display:flex;justify-content:space-between;gap:10px;align-items:center}
+.modal{position:fixed;inset:0;background:#000b;display:grid;place-items:center;padding:20px;z-index:10}
+.hidden{display:none}
+.modal-card{width:min(420px,100%);background:#1d241e;border:1px solid #566356;border-radius:24px;padding:24px;text-align:center;box-shadow:0 30px 100px #000}
+.result-name{font-size:30px;font-weight:1000;margin:8px 0}
+.stars{color:#ffd76a;font-size:25px;letter-spacing:3px}
+@media(max-width:620px){
+  #app{padding:10px}.terrarium{height:230px}.tabs button{font-size:12px;padding:10px 3px}
+}
