@@ -22,7 +22,7 @@ async function boot(){
 }
 function defaultState(){
   return {
-    gold:50000,
+    gold:100000000,
     discovered:{},
     ownedSpecies:{},
     inventory:[],
