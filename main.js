@@ -22,19 +22,23 @@ async function boot(){
 }
 function defaultState(){
   return {
-    gold:100000000,
+    gold:50000,
     discovered:{},
     ownedSpecies:{},
     inventory:[],
     equipped:{hat:null,weapon:null,necklace:null,aura:null},
-    exploreCount:0
+    exploreCount:0,
+    lastLogin:Date.now()
   };
 }
 function loadState(){
   try{return {...defaultState(), ...JSON.parse(localStorage.getItem("isopodLabSave")||"{}")}}
   catch{return defaultState()}
 }
-function save(){localStorage.setItem("isopodLabSave",JSON.stringify(state))}
+function save(){
+  state.lastLogin=Date.now();
+  localStorage.setItem("isopodLabSave",JSON.stringify(state))
+}
 function fmt(n){return n.toLocaleString("ko-KR")}
 function rand(arr){return arr[Math.floor(Math.random()*arr.length)]}
 function weightedRarity(){
